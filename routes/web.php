@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/lorem', function () {
+    return view('lorem/createlorem')->with('paragraphs', '');
+});
+
+Route::POST('/lorem', 'loremController@getLoremText');
+
+Route::get('/usergenerator', function () {
+    return view('users/createusers')->with('names', '');
+});
+
+Route::POST('/usergenerator', 'userController@getUsers');
